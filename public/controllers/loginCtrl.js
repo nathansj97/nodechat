@@ -1,6 +1,16 @@
 angular.module('nodechat')
-    .controller('loginCtrl', function(){
+    .controller('loginCtrl', function($rootScope, apiService){
         var self = this;
 
-        self.test = "Controller is registered."
+        self.user = {
+            username: '',
+            gender: '',
+        };
+
+        self.login = function(){
+            apiService.addUser(self.user)
+                .then(function(data, status, headers, config){
+                    console.log(headers);
+                })
+        };
 });

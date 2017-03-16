@@ -3,8 +3,8 @@ angular.module('nodechat', ['ngRoute'])
         function($routeProvider, $locationProvider){
             $locationProvider.html5Mode(true);
             $routeProvider.
-                when('/login', {
-                    templateUrl: '/views/login.tpl.html',
-                    controller: 'loginCtrl'
+                when('/chat', {
+                    templateUrl: '/views/chat.html',
+                    controller: 'chatCtrl'
                 });
     }]);
