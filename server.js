@@ -10,6 +10,7 @@ var userService = require('./services/userService');
 // Serve static files
 server.use(express.static(path.join(__dirname, 'public/')));
 server.use(express.static(path.join(__dirname, 'public/views/')));
+server.use(express.static(path.join(__dirname, 'public/views/partial/')));
 
 // Allow parsing of JSON in request body
 server.use(bodyParser.json());

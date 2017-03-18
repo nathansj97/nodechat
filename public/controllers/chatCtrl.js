@@ -1,10 +1,6 @@
 angular.module('nodechat')
-    .controller('mainCtrl', function($location){
+    .controller('chatCtrl', function($location){
         var self = this;
         
-        self.test = 'main controller test';
-
-        self.redirect = function(){
-            $location.path('/login');
-        };
+        self.test = 'chat controller test';
 });

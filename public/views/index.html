@@ -1,4 +1,4 @@
-<html ng-app="nodechat" ng-controller="loginCtrl as ctrl">
+<html ng-app="nodechat">
     <base href='/'/>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -22,19 +22,5 @@
         <script src="/controllers/loginCtrl.js"></script>
         <script src="/controllers/chatCtrl.js"></script>        
     </head>
-    <body>
-        <div class="panel panel-primary">
-            <div class="panel-heading">
-                <h3 class="panel-title">Login</h3>
-            </div>
-            <div class="panel-body">
-                <input type="text" placeholder="Username" ng-model="ctrl.user.username">
-                <input type="radio" name="gender" value="Male" ng-model="ctrl.user.gender" id="rdoMale"/>
-                <label for="rdoMale">Male</label>
-                <input type="radio" name="gender" value="Female" ng-model="ctrl.user.gender" id="rdoFemale"/>
-                <label for="rdoFemale">Female</label>
-                <button class="btn btn-primary" ng-click="ctrl.login()">Login</button>
-            </div>
-        </div>
-    </body>
+    <body ng-view></body>
 </html>
