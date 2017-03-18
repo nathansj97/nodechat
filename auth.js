@@ -2,7 +2,7 @@ var _userKeyStore = [];
 
 var generateGuid = function() {
     // Generate RFC4122 v4 compliant GUID.
-    // Source: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript
+    // Source: http://stackoverflow.com/questions/105034/create-guid-uuid-in-javascript.
 
    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {  
       var r = Math.random()*16|0, v = c === 'x' ? r : (r&0x3|0x8);  
@@ -14,6 +14,7 @@ var addUserKey = function(username) {
     // Add a key value pair containing a username and a key to the key store.
 
     _userKeyStore[_userKeyStore.length] = generateUserKey(username);
+    return _userKeyStore[_userKeyStore.length -1].key;
 };
 
 var generateUserKey = function (username, key = generateGuid()) {
@@ -39,6 +40,7 @@ var checkUserAuthValidity = function(username, key) {
     return returnValue;
 };
 
+// Export public functions.
 module.exports = {
     addUserKey: addUserKey,
     checkUserAuthValidity: checkUserAuthValidity
