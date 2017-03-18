@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .service('apiService', function($http, $rootScope){
+    .service('apiService', function($http){
         // Service for interacting with the API.
 
         var self = this;
