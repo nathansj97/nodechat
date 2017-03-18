@@ -40,7 +40,6 @@ var checkUserAuthValidity = function(username, key) {
     return returnValue;
 };
 
-// Export public functions.
 module.exports = {
     addUserKey: addUserKey,
     checkUserAuthValidity: checkUserAuthValidity

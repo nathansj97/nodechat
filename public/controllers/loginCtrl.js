@@ -1,7 +1,6 @@
 angular.module('nodechat')
     .controller('loginCtrl', function($rootScope, apiService){
         // Controller responsible for user logins.
-
         var self = this;
 
         // User model.
@@ -17,6 +16,8 @@ angular.module('nodechat')
                 .then(function(response){
                     if (response.status === 200 && response.data.key){
                         localStorage.setItem("userKey", response.data.key);
+                    } else {
+                        // Handle error
                     }
                 });
         };

@@ -2,7 +2,10 @@ var express = require('express');
 var server = express();
 var path = require('path');
 var bodyParser = require('body-parser');
-var authService = require('./auth');
+
+// Import custom services.
+var keyService = require('./services/keyService');
+var userService = require('./services/userService');
 
 // Serve static files
 server.use(express.static(path.join(__dirname, 'public/')));
@@ -14,10 +17,15 @@ server.use(bodyParser.json());
 // Add user
 server.post('/api/users/add', function(req, res){
     var username = req.body.username;
-    var key = authService.addUserKey(username);
+    try {
+        userService.addUser(req.body);
+        var key = keyService.addUserKey(username);
+        res.setHeader('Content-Type', 'application/json');
+        res.send({key: key});
+    } catch (error) {
+        res.status(500).send({ error: error.message})
+    };
 
-    res.setHeader('Content-Type', 'application/json');
-    res.send({key: key});
 });
 
 // Listen
