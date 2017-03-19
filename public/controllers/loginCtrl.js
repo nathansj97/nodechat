@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .controller('loginCtrl', function($location, $scope, apiService){
+    .controller('loginCtrl', function($location, $scope, apiService, sessionService){
         // Controller responsible for user logins.
         var self = this;
 
@@ -16,6 +16,7 @@ angular.module('nodechat')
                 .then(function(response){
                     if (response.status === 200 && response.data.key){
                         localStorage.setItem("userKey", response.data.key);
+                        sessionService.setCurrentUser(self.user);
                         $location.path('/chat')
                     } else {
                         // Handle error

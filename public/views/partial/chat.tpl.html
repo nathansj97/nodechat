@@ -1,6 +1,8 @@
 <html ng-app="nodechat" ng-controller="chatCtrl as ctrl">
     <body>
-        <p>Login page</p>
-        <p>{{ctrl.test}}</p>
+        <h1>Chat</h1>
+        <input type="text" ng-model="ctrl.recipient"></input>
+        <input type="text" ng-model="ctrl.message"></input>
+        <button class="btn btn-primary" ng-click="ctrl.sendMessage()"></button>        
     </body>
 </html>
