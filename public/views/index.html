@@ -1,4 +1,4 @@
-<html ng-app="nodechat" ng-controller="mainCtrl as ctrl">
+<html ng-app="nodechat">
     <base href='/'/>
     <head>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -17,13 +17,10 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular-route.js"></script>
 
         <!-- Custom scripts -->
-        <script src="app.js"></script>
-        <script src="/controllers/mainCtrl.js"></script>        
+        <script src="../app.js"></script>
+        <script src="/services/apiService.js"></script>
         <script src="/controllers/loginCtrl.js"></script>
+        <script src="/controllers/chatCtrl.js"></script>
     </head>
-    <body>
-        <button class="btn btn-primary" ng-click="ctrl.redirect()">Redirect</button>
-        <div ng-view>
-        </div>
-    </body>
+    <body ng-view></body>
 </html>

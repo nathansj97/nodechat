@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+    <div class="panel-body">
+        <div class="col-md-12">
+            <input type="text" placeholder="Username" ng-model="ctrl.user.username"/>
+        </div>
+        <input type="radio" name="gender" value="Male" ng-model="ctrl.user.gender" id="rdoMale"/>
+        <label for="rdoMale">Male</label>
+        <input type="radio" name="gender" value="Female" ng-model="ctrl.user.gender" id="rdoFemale"/>
+        <label for="rdoFemale">Female</label>
+        <div class="col-md-12">
+            <button class="btn btn-primary" ng-click="ctrl.login()">Login</button>
+        </div>
+    </div>
+</div>
