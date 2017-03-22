@@ -17,7 +17,7 @@ angular.module('nodechat')
                     if (response.status === 200 && response.data.key){
                         localStorage.setItem("userKey", response.data.key);
                         sessionService.setCurrentUser(self.user);
-                        $location.path('/chat')
+                        $location.path('/home')
                     } else {
                         // Handle error
                     }

@@ -1,0 +1,10 @@
+<html ng-app="nodechat" ng-controller="homeCtrl as ctrl">
+    <body>
+        <h1>Chat</h1>
+            <div class="list-group">
+                <button type="button" class="list-group-item" ng-repeat="user in ctrl.users" ng-click="ctrl.startChat(user)">
+                    {{user.username + ' - ' + user.gender}}
+                </button>
+            </div>
+    </body>
+</html>

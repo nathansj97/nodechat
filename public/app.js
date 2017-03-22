@@ -3,10 +3,9 @@ angular.module('nodechat', ['ngRoute'])
         function($routeProvider, $locationProvider){
             $locationProvider.html5Mode(true);
             $routeProvider.
-                when('/chat', {
-                    // TODO - rename to home.
-                    templateUrl: '/views/partial/chat.tpl.html',
-                    controller: 'chatCtrl',
+                when('/home', {
+                    templateUrl: '/views/partial/home.tpl.html',
+                    controller: 'homeCtrl',
                     controllerAs: 'ctrl'
                 }).
                 when('/', {
@@ -15,9 +14,8 @@ angular.module('nodechat', ['ngRoute'])
                     controllerAs: 'ctrl'
                 }).
                 when('/chat/:username', {
-                    // TODO - rename to chat.
-                    templateUrl: '/views/partial/startchat.tpl.html',
-                    controller: 'startchatCtrl',
+                    templateUrl: '/views/partial/chat.tpl.html',
+                    controller: 'chatCtrl',
                     controllerAs: 'ctrl'
                 });
     }]);
