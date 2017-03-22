@@ -22,10 +22,19 @@ io.on('connection', function(socket){
     userService.attachSocket(socket.handshake.query.username, socket.id);
 
     socket.on('newChatMessage', function(message){
+        // Forward incoming messages to the specified recipient
+
         var recipientSocket = userService.findSocketByUsername(message.recipient);
         socket.broadcast.to(recipientSocket).emit('newChatMessage', { from: message.from, message: message.message });
     });
 });
+
+// Clones an object
+// Source: http://stackoverflow.com/questions/7574054/javascript-how-to-pass-object-by-value
+function Clone(x) {
+   for(p in x)
+   this[p] = (typeof(x[p]) == 'object')? new Clone(x[p]) : x[p];
+}
 
 // Add user
 server.post('/api/users/add', function(req, res){
@@ -39,6 +48,17 @@ server.post('/api/users/add', function(req, res){
         res.status(500).send({ error: error.message });
     };
 });
+
+// Retrieve users
+server.get('/api/users/getAll', function(req, res){
+    var users = new Clone(userService.getAllUsers());
+    for (var property in users){
+        if (users.hasOwnProperty(property)){
+            delete users[property].socketId;
+        }
+    }
+    res.send({ users: users });
+})
 
 // Listen
 http.listen(3000, function(){

@@ -4,8 +4,14 @@ angular.module('nodechat')
         
         self.recipient = '';
         self.message = '';
+        self.users = {};
 
-        self.sendMessage = function () {
-            chatService.sendMessage(self.recipient, self.message);
+        chatService.getAllUsers()
+            .then(function(data){
+                self.users = data.data.users;
+            });
+
+        self.startChat = function(user){
+            $location.path('/chat/' + user.username);
         };
 });

@@ -11,6 +11,12 @@ var addUser = function (user) {
     }
 };
 
+var getAllUsers = function () {
+    // Return all users from the user store.
+
+    return _userStore;
+}
+
 var attachSocket = function(username, socketId){
     // Add the user's socket id to the user store.
 
@@ -29,7 +35,7 @@ var findSocketByUsername = function(username){
     } else {
         throw { name: 'UserNotFoundError', message: 'Username doesn\'t exist.' }
     }
-}
+};
 
 var userExists = function (username) {
     // Check if a user exists in the user store.
@@ -46,6 +52,7 @@ var userExists = function (username) {
 
 module.exports = {
     addUser: addUser,
+    getAllUsers: getAllUsers,
     attachSocket: attachSocket,
     findSocketByUsername: findSocketByUsername
 };

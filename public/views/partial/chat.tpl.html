@@ -1,8 +1,10 @@
 <html ng-app="nodechat" ng-controller="chatCtrl as ctrl">
     <body>
         <h1>Chat</h1>
-        <input type="text" ng-model="ctrl.recipient"></input>
-        <input type="text" ng-model="ctrl.message"></input>
-        <button class="btn btn-primary" ng-click="ctrl.sendMessage()"></button>        
+            <div class="list-group">
+                <button type="button" class="list-group-item" ng-repeat="user in ctrl.users" ng-click="ctrl.startChat(user)">
+                    {{user.username + ' - ' + user.gender}}
+                </button>
+            </div>
     </body>
 </html>
