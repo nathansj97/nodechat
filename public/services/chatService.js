@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .service('chatService', function(sessionService, apiService) {
+    .service('chatService', function(sessionService, apiService, $rootScope) {
         // Service responsible for handling chat functionality.
 
         var self = this;
@@ -13,9 +13,11 @@ angular.module('nodechat')
         
         self.sendMessage = function(recipient, message){
             socket.emit('newChatMessage', { from: _currentUser.username, recipient: recipient, message: message });
-        }
+        };
 
         socket.on('newChatMessage', function(message){
-            console.log(message);
+            $rootScope.$broadcast('newMessage', {
+                message: message
+            });
         });
     });
