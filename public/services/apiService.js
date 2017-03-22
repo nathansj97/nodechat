@@ -15,4 +15,14 @@ angular.module('nodechat')
                 data: JSON.stringify(user),
                 headers: { 'Content-Type': 'application/json' }
             });
-    }});
+    };
+
+    self.getAllUsers = function(){
+            // Send a request to get all users.
+
+            return $http({
+                method: 'GET',
+                url: BASE_URL + '/users/getAll'
+            });
+    };
+});
