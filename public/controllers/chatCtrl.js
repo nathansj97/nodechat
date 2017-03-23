@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .controller('chatCtrl', function($routeParams, $route, chatService, sessionService){
+    .controller('chatCtrl', function($routeParams, $route, $rootScope, $scope, chatService, sessionService){
         var self = this;
 
         self.currentUser = sessionService.getCurrentUser();

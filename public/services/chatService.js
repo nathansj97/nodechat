@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .service('chatService', function(sessionService, apiService, $rootScope) {
+    .service('chatService', function($location, $rootScope, sessionService, apiService) {
         // Service responsible for handling chat functionality.
 
         var self = this;
@@ -33,6 +33,7 @@ angular.module('nodechat')
             // New message recieved.
 
             logMessage(message.from, _currentUser.username, message.message);
+            $rootScope.$broadcast('messageLogStateChanged');
         });
 
         self.markAsRead = function(username){
@@ -45,6 +46,7 @@ angular.module('nodechat')
                     });
                 });
             }
+            $rootScope.$broadcast('messageLogStateChanged');
         };
 
         self.getUnreadMessages = function(){
@@ -76,6 +78,11 @@ angular.module('nodechat')
             } else {
                 // Yes, log as recipient's username and mark as read.
                 logName = recipient;
+                read = true;
+            }
+
+            if ($location.path() === ('/chat/' + logName)){
+                // User is on the chat page, mark as read.
                 read = true;
             }
 
