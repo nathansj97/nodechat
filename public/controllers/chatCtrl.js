@@ -1,31 +1,23 @@
 angular.module('nodechat')
-    .controller('chatCtrl', function($routeParams, $scope, chatService, sessionService){
+    .controller('chatCtrl', function($routeParams, $route, chatService, sessionService){
         var self = this;
 
         self.currentUser = sessionService.getCurrentUser();
         self.chattingTo = $routeParams.username;
         self.newMessage = '';
-        self.messageLog = [];
+        self.messageLog = chatService.getLog(self.chattingTo);
+        if (self.messageLog){
+            self.messages = self.messageLog.messages;
+        }
 
         self.sendMessage = function(){
+            // Send a message to a given user.
+            
             chatService.sendMessage(self.chattingTo, self.newMessage);
-            logMessage(self.currentUser.username, self.newMessage);
+            if (!self.messageLog){
+                // Temporary hack to force first message to appear.
+                $route.reload();
+            }
             self.newMessage = '';
-        };
-
-        self.recieveMessage = function(message){
-            logMessage(message.from, message.message);
-        };
-
-        $scope.$on('newMessage', function(event, data){
-            self.recieveMessage(data.message);
-        });
-
-        var logMessage = function(sender, message){
-            var message = {
-                sender: sender,
-                message: message
-            };
-            self.messageLog.push(message);
         };
     });
