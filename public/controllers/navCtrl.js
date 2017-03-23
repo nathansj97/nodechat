@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .controller('navCtrl', function($location){
+    .controller('navCtrl', function($location, $route){
         // Controller responsible for navigation.
 
         var self = this;
@@ -19,12 +19,20 @@ angular.module('nodechat')
         self.navigateHome = function(){
             // Navigate to the home page.
 
-            $location.path('/home');
+            if (self.isHome()){
+                $route.reload();
+            } else {
+                $location.path('/home');
+            }
         };
 
         self.navigateInbox = function(){
             // Navigate to the inbox page.
 
-            $location.path('/inbox');
+            if (self.isInbox()){
+                $route.reload();
+            } else {
+                $location.path('/inbox');
+            }
         };
     });
