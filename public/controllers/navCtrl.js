@@ -1,8 +1,10 @@
 angular.module('nodechat')
-    .controller('navCtrl', function($location){
-        // Controller responsible for navigation.
+    .controller('navCtrl', function($location, $route, $rootScope, $scope, chatService){
+        // Controller responsible for navbar functionality.
 
         var self = this;
+
+        self.unreadMessages = 0;
 
         self.isHome = function(){
             // Check if the current page is 'home'.
@@ -19,12 +21,35 @@ angular.module('nodechat')
         self.navigateHome = function(){
             // Navigate to the home page.
 
-            $location.path('/home');
+            if (self.isHome()){
+                $route.reload();
+            } else {
+                $location.path('/home');
+            }
         };
 
         self.navigateInbox = function(){
             // Navigate to the inbox page.
 
-            $location.path('/inbox');
+            if (self.isInbox()){
+                $route.reload();
+            } else {
+                $location.path('/inbox');
+            }
         };
+
+        var reloadUnreadMessagesCount = function(){
+            // Reload unread message count.
+
+            var unread = chatService.getUnreadMessages();
+            self.unreadMessages = unread.length;
+        };
+
+        $rootScope.$on('messageLogStateChanged', function(){
+            // Refresh the unread message count when a new message is recieved. 
+            
+            $scope.$apply(function(){
+                reloadUnreadMessagesCount();
+            });
+        });
     });

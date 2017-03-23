@@ -5,7 +5,10 @@
         </div>
         <ul class="nav navbar-nav">
             <li ng-class="{ 'active': ctrl.isHome() }"><a href="#" ng-click="ctrl.navigateHome()">Home</a></li>
-            <li ng-class="{ 'active': ctrl.isInbox() }"><a href="#" ng-click="ctrl.navigateInbox()">Inbox</a></li>
+            <li ng-class="{ 'active': ctrl.isInbox() }">
+                <a href="#" ng-click="ctrl.navigateInbox()">Inbox
+                <span class="badge" ng-show="ctrl.unreadMessages">{{ctrl.unreadMessages}}</span>
+            </a></li>
         </ul>
     </div>
 </nav>
