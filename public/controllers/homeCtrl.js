@@ -12,6 +12,8 @@ angular.module('nodechat')
             });
 
         self.startChat = function(user){
+            // Start a chat with a given user.
+            
             $location.path('/chat/' + user.username);
         };
 });
