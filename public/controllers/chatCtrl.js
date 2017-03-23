@@ -10,6 +10,8 @@ angular.module('nodechat')
             self.messages = self.messageLog.messages;
         }
 
+        chatService.markAsRead(self.chattingTo);
+
         self.sendMessage = function(){
             // Send a message to a given user.
             

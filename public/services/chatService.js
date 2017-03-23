@@ -27,7 +27,7 @@ angular.module('nodechat')
             if (logExists(username)){
                 return chatLogs[username];
             }
-        }
+        };
 
         socket.on('newChatMessage', function(message){
             // New message recieved.
@@ -35,22 +35,55 @@ angular.module('nodechat')
             logMessage(message.from, _currentUser.username, message.message);
         });
 
+        self.markAsRead = function(username){
+            // Mark logs as read for a given user.
+
+            if(logExists(username)){
+                angular.forEach(chatLogs[username], function(log, index){
+                    angular.forEach(log, function(message, index){
+                        message.read = true;
+                    });
+                });
+            }
+        };
+
+        self.getUnreadMessages = function(){
+            // Get all unread messages.
+
+            var unread = [];
+
+            angular.forEach(chatLogs, function(logs, username){
+                angular.forEach(logs.messages, function(message, index){
+                    if (!message.read){
+                        unread.push(message);
+                    }
+                });
+            });
+            return unread;
+        };
+
         var logMessage = function(sender, recipient, message){
             // Logs a message to the chat logs.
 
             var logName = '';
+            var read = false;
+            
+            // Did the current user send the message?
+            if(recipient === _currentUser.username){
+                // No, log as sender's username and mark as unread.
+                logName = sender;
+                read = false;
+            } else {
+                // Yes, log as recipient's username and mark as read.
+                logName = recipient;
+                read = true;
+            }
 
             var log = {
                 sender: sender,
-                message: message
+                message: message,
+                read: read
             };
-
-            // Make sure log is created with cha partner's name.
-            if(recipient === _currentUser.username){
-                logName = sender;
-            } else {
-                logName = recipient;
-            }
 
             if (logExists(logName)){
                 chatLogs[logName]
