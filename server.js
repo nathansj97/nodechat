@@ -4,6 +4,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var http = require('http').Server(server);
 var io = require('socket.io')(http);
+var cors = require('cors');
 
 // Import custom services.
 var keyService = require('./services/keyService');
@@ -16,6 +17,8 @@ server.use(express.static(path.join(__dirname, 'public/views/partial/')));
 
 // Allow parsing of JSON in request body
 server.use(bodyParser.json());
+
+server.use(cors());
 
 // Listen for new socket connections
 io.on('connection', function(socket){
@@ -61,6 +64,6 @@ server.get('/api/users/getAll', function(req, res){
 })
 
 // Listen
-http.listen(3000, function(){
+http.listen(3000, '192.168.1.245', function(){
     console.log('Listening on port 3000');
 });
