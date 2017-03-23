@@ -11,7 +11,8 @@ angular.module('nodechat', ['ngRoute'])
                 when('/', {
                     templateUrl: '/views/partial/login.tpl.html',
                     controller: 'loginCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/partial/login.css'
                 }).
                 when('/chat/:username', {
                     templateUrl: '/views/partial/chat.tpl.html',
@@ -19,7 +20,7 @@ angular.module('nodechat', ['ngRoute'])
                     controllerAs: 'ctrl'
                 }).
                 when('/inbox', {
-                    templateUrl: 'views/partial/inbox.tpl.html',
+                    templateUrl: '/views/partial/inbox.tpl.html',
                     controller: 'inboxCtrl',
                     controllerAs: 'ctrl'
                 });

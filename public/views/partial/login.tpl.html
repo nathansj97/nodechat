@@ -1,14 +1,16 @@
-<div class="panel panel-primary">
+<div class="panel panel-primary" id="containerPanel">
     <div class="panel-body">
         <div class="col-md-12">
-            <input type="text" placeholder="Username" ng-model="ctrl.user.username"/>
+            <input type="text" class="form-control" placeholder="Username" ng-model="ctrl.user.username" id="usernameInput"/>
         </div>
-        <input type="radio" name="gender" value="Male" ng-model="ctrl.user.gender" id="rdoMale"/>
-        <label for="rdoMale">Male</label>
-        <input type="radio" name="gender" value="Female" ng-model="ctrl.user.gender" id="rdoFemale"/>
-        <label for="rdoFemale">Female</label>
+        <div id="radioButtonContainer">
+            <input type="radio" name="gender" value="Male" ng-model="ctrl.user.gender" id="rdoMale" checked/>
+            <label for="rdoMale"><i class="fa fa-mars fa-2x"></i></label>
+            <input type="radio" name="gender" value="Female" ng-model="ctrl.user.gender" id="rdoFemale"/>
+            <label for="rdoFemale"><i class="fa fa-venus fa-2x"></i></label>
+        </div>
         <div class="col-md-12">
-            <button class="btn btn-primary" ng-click="ctrl.login()">Login</button>
+            <button class="btn btn-primary btn-block" ng-click="ctrl.login()">Login</button>
         </div>
     </div>
 </div>
