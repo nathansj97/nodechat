@@ -12,7 +12,7 @@ angular.module('nodechat', ['ngRoute'])
                     templateUrl: '/views/partial/login.tpl.html',
                     controller: 'loginCtrl',
                     controllerAs: 'ctrl',
-                    css: '/views/partial/login.css'
+                    css: '/views/css/login.css'
                 }).
                 when('/chat/:username', {
                     templateUrl: '/views/partial/chat.tpl.html',
