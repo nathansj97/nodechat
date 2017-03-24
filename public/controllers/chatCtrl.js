@@ -12,6 +12,14 @@ angular.module('nodechat')
 
         chatService.markAsRead(self.chattingTo);
 
+        self.sendMessageOnKeypress = function(event){
+            // Send the message if the enter button is pressed.
+
+            if (event.which === 13){
+                self.sendMessage();
+            };
+        }
+
         self.sendMessage = function(){
             // Send a message to a given user.
             
