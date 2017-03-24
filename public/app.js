@@ -23,5 +23,10 @@ angular.module('nodechat', ['ngRoute'])
                     templateUrl: '/views/partial/inbox.tpl.html',
                     controller: 'inboxCtrl',
                     controllerAs: 'ctrl'
+                }).
+                when('/recent', {
+                    templateUrl: '/views/partial/recent.tpl.html',
+                    controller: 'recentCtrl',
+                    controllerAs: 'ctrl'
                 });
     }]);

@@ -18,6 +18,12 @@ angular.module('nodechat')
             return $location.path() === '/inbox';
         };
 
+        self.isRecent = function(){
+            // Check if the current page is 'recent'.
+
+            return $location.path() === '/recent';
+        };
+
         self.navigateHome = function(){
             // Navigate to the home page.
 
@@ -35,6 +41,16 @@ angular.module('nodechat')
                 $route.reload();
             } else {
                 $location.path('/inbox');
+            }
+        };
+
+        self.navigateRecent = function(){
+            // Navigate to the recent page.
+
+            if (self.isRecent()){
+                $route.reload();
+            } else {
+                $location.path('/recent');
             }
         };
 

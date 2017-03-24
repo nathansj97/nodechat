@@ -5,7 +5,7 @@ angular.module('nodechat')
         self.currentUser = sessionService.getCurrentUser();
         self.chattingTo = $routeParams.username;
         self.newMessage = '';
-        self.messageLog = chatService.getLog(self.chattingTo);
+        self.messageLog = chatService.getLogForUser(self.chattingTo);
         if (self.messageLog){
             self.messages = self.messageLog.messages;
         }

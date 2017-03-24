@@ -1,8 +1,14 @@
 <div ng-include src="'navbar.tpl.html'"></div>
-<h1>Inbox</h1>
-<div class="list-group">
-    <button type="button" class="list-group-item" ng-repeat="(logName, logMessages) in ctrl.unreadMessages" ng-click="ctrl.startChat(logName)">
-        {{logName + ' - ' + logMessages.length}}
-    </button>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Inbox</h3>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <button type="button" class="list-group-item" ng-repeat="(logName, logMessages) in ctrl.unreadMessages" ng-click="ctrl.startChat(logName)">
+                {{logName + ' - ' + logMessages.length}}
+            </button>
+        </div>
+        <h3 ng-if="!ctrl.hasUnreadMessages()">No unread messages to show</h3>
+    </div>
 </div>
-<h2 ng-if="!ctrl.hasUnreadMessages()">No unread messages to show</h2>

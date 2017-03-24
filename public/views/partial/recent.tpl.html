@@ -1,0 +1,14 @@
+<div ng-include src="'navbar.tpl.html'"></div>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Recent Conversations</h3>
+    </div>
+    <div class="panel-body">
+        <div class="list-group">
+            <button type="button" class="list-group-item" ng-repeat="(logName, logMessages) in ctrl.logs" ng-click="ctrl.startChat(logName)">
+                {{logName}}
+            </button>
+        </div>
+        <h3 ng-if="!ctrl.hasActiveChats()">No active chats to show</h3>
+    </div>
+</div>
