@@ -6,7 +6,8 @@ angular.module('nodechat')
         // User model.
         self.user = {
             username: '',
-            gender: '',
+            gender: 'Male',
+            country: 'GBR'
         };
 
         self.login = function(){
