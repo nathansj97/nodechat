@@ -9,3 +9,8 @@
     margin: auto;
     margin-bottom: 5px;
 }
+
+#countryDropdown{
+    width: 418px;
+    margin-bottom: 10px;
+}
