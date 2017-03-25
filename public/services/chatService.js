@@ -5,6 +5,7 @@ angular.module('nodechat')
         var self = this;
         chatLogs = {};
 
+        // TODO - Move to session service.
         self.getAllUsers = function(){
             // Get all users from the api service.
 
@@ -21,13 +22,19 @@ angular.module('nodechat')
             logMessage(_currentUser.username, recipient, message);
         };
 
-        self.getLog = function(username){
+        self.getLogForUser = function(username){
             // Retrieve a chat log for a given user.
 
             if (logExists(username)){
                 return chatLogs[username];
             }
         };
+
+        self.getAllLogs = function(){
+            // Retrieve a chat log for all users.
+
+            return chatLogs;
+        }
 
         socket.on('newChatMessage', function(message){
             // New message recieved.

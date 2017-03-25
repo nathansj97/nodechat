@@ -9,6 +9,7 @@
                 <a href="#" ng-click="ctrl.navigateInbox()">Inbox
                 <span class="badge" ng-show="ctrl.unreadMessages">{{ctrl.unreadMessages}}</span>
             </a></li>
+            <li ng-class="{ 'active': ctrl.isRecent() }"><a href="#" ng-click="ctrl.navigateRecent()">Recent</a></li>
         </ul>
     </div>
 </nav>
