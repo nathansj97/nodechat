@@ -28,5 +28,11 @@ angular.module('nodechat', ['ngRoute'])
                     templateUrl: '/views/partial/recent.tpl.html',
                     controller: 'recentCtrl',
                     controllerAs: 'ctrl'
+                }).
+                when('/search', {
+                    templateUrl: '/views/partial/search.tpl.html',
+                    controller: 'searchCtrl',
+                    controllerAs: 'ctrl',
+                    css: '/views/css/search.css'
                 });
     }]);

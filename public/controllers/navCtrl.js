@@ -24,6 +24,12 @@ angular.module('nodechat')
             return $location.path() === '/recent';
         };
 
+        self.isSearch = function(){
+            // Check if the current page is 'search'.
+
+            return $location.path() === '/search';
+        };
+
         self.navigateHome = function(){
             // Navigate to the home page.
 
@@ -51,6 +57,16 @@ angular.module('nodechat')
                 $route.reload();
             } else {
                 $location.path('/recent');
+            }
+        };
+
+        self.navigateSearch = function(){
+            // Navigate to the search page.
+
+            if (self.isSearch()){
+                $route.reload();
+            } else {
+                $location.path('search');
             }
         };
 
