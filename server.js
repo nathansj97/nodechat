@@ -22,13 +22,20 @@ server.use(cors());
 
 // Listen for new socket connections
 io.on('connection', function(socket){
-    userService.attachSocket(socket.handshake.query.username, socket.id);
+    var username = socket.handshake.query.username;
+    var key = socket.handshake.query.key;
+
+    if (keyService.checkUserAuthValidity(username, key)){
+        userService.attachSocket(username, socket.id);
+    }
 
     socket.on('newChatMessage', function(message){
         // Forward incoming messages to the specified recipient
 
-        var recipientSocket = userService.findSocketByUsername(message.recipient);
-        socket.broadcast.to(recipientSocket).emit('newChatMessage', { from: message.from, message: message.message });
+        if (keyService.checkUserAuthValidity(message.from, message.key)){
+            var recipientSocket = userService.findSocketByUsername(message.recipient);
+            socket.broadcast.to(recipientSocket).emit('newChatMessage', { from: message.from, message: message.message });
+        }
     });
 });
 
