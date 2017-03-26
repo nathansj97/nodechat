@@ -31,11 +31,13 @@ var checkUserAuthValidity = function(username, key) {
 
     var returnValue = false;
 
-    if (_userKeyStore.indexOf(generateUserKey(username, key)) !== -1){
-        returnValue = true;
-    } else {
-        returnValue = false;
-    }
+    _userKeyStore.forEach(function(user, index){
+        if (user.username === username){
+            if (user.key === key){
+                returnValue = true;
+            }
+        }
+    });
 
     return returnValue;
 };

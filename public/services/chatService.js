@@ -3,6 +3,7 @@ angular.module('nodechat')
         // Service responsible for handling chat functionality.
 
         var self = this;
+        var key = sessionService.getKey();
         chatLogs = {};
 
         // TODO - Move to session service.
@@ -13,12 +14,12 @@ angular.module('nodechat')
         };
 
         var _currentUser = sessionService.getCurrentUser();
-        var socket = io.connect('', { query: 'username=' + _currentUser.username});
+        var socket = io.connect('', { query: 'username=' + _currentUser.username + '&key=' + key});
         
         self.sendMessage = function(recipient, message){
             // Send a message to a given user.
 
-            socket.emit('newChatMessage', { from: _currentUser.username, recipient: recipient, message: message });
+            socket.emit('newChatMessage', { key: key, from: _currentUser.username, recipient: recipient, message: message });
             logMessage(_currentUser.username, recipient, message);
         };
 
