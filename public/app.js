@@ -1,4 +1,4 @@
-angular.module('nodechat', ['ngRoute'])
+angular.module('nodechat', ['ngRoute', 'luegg.directives'])
     .config(['$routeProvider', '$locationProvider',
         function($routeProvider, $locationProvider){
             $locationProvider.html5Mode(true);
@@ -17,7 +17,8 @@ angular.module('nodechat', ['ngRoute'])
                 when('/chat/:username', {
                     templateUrl: '/views/partial/chat.tpl.html',
                     controller: 'chatCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/chat.css'
                 }).
                 when('/inbox', {
                     templateUrl: '/views/partial/inbox.tpl.html',
