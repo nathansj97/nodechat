@@ -37,6 +37,13 @@ io.on('connection', function(socket){
             socket.broadcast.to(recipientSocket).emit('newChatMessage', { from: message.from, message: message.message });
         }
     });
+
+    socket.on('disconnect', function(){
+        // Delete a user when they disconnect.
+
+        socket.broadcast.emit('userDisconnected', { username: username});
+        userService.deleteUser(username);
+    });
 });
 
 // Clones an object
