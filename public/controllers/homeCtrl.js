@@ -1,14 +1,19 @@
 angular.module('nodechat')
-    .controller('homeCtrl', function($location, chatService){
+    .controller('homeCtrl', function($location, chatService, sessionService){
         var self = this;
         
         self.recipient = '';
         self.message = '';
         self.users = {};
+        self.currentUser = sessionService.getCurrentUser();
 
         chatService.getAllUsers()
             .then(function(data){
-                self.users = data.data.users;
+                // Set the user list. Current user should not be included.
+
+                var users = data.data.users;
+                delete users[self.currentUser.username];
+                self.users = users;
             });
 
         self.startChat = function(user){

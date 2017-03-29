@@ -1,5 +1,5 @@
 angular.module('nodechat')
-    .controller('searchCtrl', function($location, chatService){
+    .controller('searchCtrl', function($location, chatService, sessionService){
         // Controller responsible for search functionality.
 
         var self = this;
@@ -11,10 +11,15 @@ angular.module('nodechat')
             return Object.keys(self.filteredUsers).length !== 0;
         }
 
-        // Get all users.
+        var currentUser = sessionService.getCurrentUser();
+
         chatService.getAllUsers()
             .then(function(data){
-                self.users = data.data.users;
+            // Set the user list. Current user should not be included.
+
+                var users = data.data.users;
+                delete users[currentUser.username];
+                self.users = users;
             });
 
         self.filterUsers = function(){

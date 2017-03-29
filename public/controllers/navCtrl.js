@@ -1,10 +1,11 @@
 angular.module('nodechat')
-    .controller('navCtrl', function($location, $route, $rootScope, $scope, chatService){
+    .controller('navCtrl', function($location, $route, $rootScope, $scope, chatService, sessionService){
         // Controller responsible for navbar functionality.
 
         var self = this;
 
         self.unreadMessages = 0;
+        self.currentUser = sessionService.getCurrentUser();
 
         self.isHome = function(){
             // Check if the current page is 'home'.
