@@ -11,6 +11,14 @@ var addUser = function (user) {
     }
 };
 
+var deleteUser = function(username){
+    // Delete a user from the user store.
+
+    if (userExists(username)){
+        delete _userStore[username];
+    }
+};
+
 var getAllUsers = function () {
     // Return all users from the user store.
 
@@ -22,8 +30,6 @@ var attachSocket = function(username, socketId){
 
     if (userExists(username)){
         _userStore[username].socketId = socketId;
-    } else {
-        throw { name: 'UserNotFoundError', message: 'Username doesn\'t exist.' }
     }
 };
 
@@ -32,9 +38,7 @@ var findSocketByUsername = function(username){
 
     if (userExists(username)){
         return _userStore[username].socketId;
-    } else {
-        throw { name: 'UserNotFoundError', message: 'Username doesn\'t exist.' }
-    }
+    } 
 };
 
 var userExists = function (username) {
@@ -52,6 +56,7 @@ var userExists = function (username) {
 
 module.exports = {
     addUser: addUser,
+    deleteUser: deleteUser,
     getAllUsers: getAllUsers,
     attachSocket: attachSocket,
     findSocketByUsername: findSocketByUsername

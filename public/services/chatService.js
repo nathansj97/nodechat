@@ -44,6 +44,15 @@ angular.module('nodechat')
             $rootScope.$broadcast('messageLogStateChanged');
         });
 
+        socket.on('userDisconnected', function(event){
+            // Remove all logs for a user when they disconnect.
+
+            var username = event.username;
+            if (chatLogs[username]){
+                delete chatLogs[username];
+            }
+        });
+
         self.markAsRead = function(username){
             // Mark logs as read for a given user.
 
