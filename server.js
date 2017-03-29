@@ -39,6 +39,8 @@ io.on('connection', function(socket){
     });
 
     socket.on('disconnect', function(){
+        // Delete a user when they disconnect.
+
         socket.broadcast.emit('userDisconnected', { username: username});
         userService.deleteUser(username);
     });
