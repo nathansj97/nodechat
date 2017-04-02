@@ -4,7 +4,7 @@ angular.module('nodechat')
 
         var self = this;
 
-        BASE_URL = 'http://192.168.1.245:3000/api';
+        BASE_URL = 'http://192.168.1.246:3000/api';
 
         self.addUser = function(user){
             // Send a request to add a user.
