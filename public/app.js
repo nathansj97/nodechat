@@ -6,7 +6,8 @@ angular.module('nodechat', ['ngRoute', 'luegg.directives'])
                 when('/home', {
                     templateUrl: '/views/partial/home.tpl.html',
                     controller: 'homeCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/home.css'
                 }).
                 when('/', {
                     templateUrl: '/views/partial/login.tpl.html',
@@ -23,12 +24,14 @@ angular.module('nodechat', ['ngRoute', 'luegg.directives'])
                 when('/inbox', {
                     templateUrl: '/views/partial/inbox.tpl.html',
                     controller: 'inboxCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/inbox.css'
                 }).
                 when('/recent', {
                     templateUrl: '/views/partial/recent.tpl.html',
                     controller: 'recentCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/recent.css'
                 }).
                 when('/search', {
                     templateUrl: '/views/partial/search.tpl.html',

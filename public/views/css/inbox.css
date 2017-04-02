@@ -1,12 +1,8 @@
-#searchDivider{
-    border-color: #3072AC;
-}
-
-#searchPanel{
+#inboxPanel{
     margin: 10px;
 }
 
-#searchResultsContainer{
+#newMessagesContainer{
     max-height: 90vh;
     overflow-y: auto;
     scroll-behavior: smooth;

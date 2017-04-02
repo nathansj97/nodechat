@@ -1,12 +1,8 @@
-#searchDivider{
-    border-color: #3072AC;
-}
-
-#searchPanel{
+#userPanel{
     margin: 10px;
 }
 
-#searchResultsContainer{
+#userPanelBody{
     max-height: 90vh;
     overflow-y: auto;
     scroll-behavior: smooth;

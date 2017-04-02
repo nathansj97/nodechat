@@ -1,12 +1,8 @@
-#searchDivider{
-    border-color: #3072AC;
-}
-
-#searchPanel{
+#recentPanel{
     margin: 10px;
 }
 
-#searchResultsContainer{
+#recentChatContainer{
     max-height: 90vh;
     overflow-y: auto;
     scroll-behavior: smooth;
