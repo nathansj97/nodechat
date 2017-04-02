@@ -1,0 +1,9 @@
+#inboxPanel{
+    margin: 10px;
+}
+
+#newMessagesContainer{
+    max-height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}

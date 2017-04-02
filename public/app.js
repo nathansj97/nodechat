@@ -24,7 +24,8 @@ angular.module('nodechat', ['ngRoute', 'luegg.directives'])
                 when('/inbox', {
                     templateUrl: '/views/partial/inbox.tpl.html',
                     controller: 'inboxCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/inbox.css'
                 }).
                 when('/recent', {
                     templateUrl: '/views/partial/recent.tpl.html',

@@ -1,12 +1,12 @@
 <div ng-include src="'navbar.tpl.html'"></div>
-<div class="panel panel-primary">
+<div class="panel panel-primary" id="inboxPanel">
     <div class="panel-heading">
         <h3 class="panel-title">Inbox</h3>
     </div>
     <div class="panel-body">
         <div class="list-group">
             <button type="button" class="list-group-item" ng-repeat="(logName, logMessages) in ctrl.unreadMessages" ng-click="ctrl.startChat(logName)">
-                <div class="col-md-1">
+                <div class="col-md-1" id="newMessagesContainer">
                     {{logName}}
                     <span class="badge">{{logMessages.length}}</span>
                 </div>
