@@ -30,7 +30,8 @@ angular.module('nodechat', ['ngRoute', 'luegg.directives'])
                 when('/recent', {
                     templateUrl: '/views/partial/recent.tpl.html',
                     controller: 'recentCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/recent.css'
                 }).
                 when('/search', {
                     templateUrl: '/views/partial/search.tpl.html',
