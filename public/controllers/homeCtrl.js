@@ -21,4 +21,10 @@ angular.module('nodechat')
             
             $location.path('/chat/' + user.username);
         };
+
+        self.userCount = function(){
+            // Returns the number of online users.
+            
+            return Object.keys(self.users).length;
+        }
 });

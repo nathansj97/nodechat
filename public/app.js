@@ -6,7 +6,8 @@ angular.module('nodechat', ['ngRoute', 'luegg.directives'])
                 when('/home', {
                     templateUrl: '/views/partial/home.tpl.html',
                     controller: 'homeCtrl',
-                    controllerAs: 'ctrl'
+                    controllerAs: 'ctrl',
+                    css: '/views/css/home.css'
                 }).
                 when('/', {
                     templateUrl: '/views/partial/login.tpl.html',
