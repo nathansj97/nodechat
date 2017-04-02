@@ -1,3 +1,13 @@
 #searchDivider{
     border-color: #3072AC;
 }
+
+#searchPanel{
+    margin: 10px;
+}
+
+#searchResultsContainer{
+    max-height: 90vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}

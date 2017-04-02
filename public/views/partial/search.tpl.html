@@ -1,5 +1,5 @@
 <div ng-include src="'navbar.tpl.html'"></div>
-<div class="panel panel-primary">
+<div class="panel panel-primary" id="searchPanel">
     <div class="panel-heading">
         <h3 id="searchTitle" class="panel-title">Search</h3>
     </div>
@@ -9,7 +9,7 @@
         </form>
         <hr id="searchDivider">
         <h3 ng-show="search.$dirty && ctrl.searchTerm !== '' && !ctrl.isSearchResults() && ctrl.searchTerm.length > 1">No results found</h3>
-        <div class="list-group">
+        <div class="list-group" id="searchResultsContainer">
             <button type="button" class="list-group-item" ng-repeat="user in ctrl.filteredUsers" ng-click="ctrl.startChat(user.username)">
                 {{user.username + ' - ' + user.gender + ' [' + user.country + ']'}}
             </button>
