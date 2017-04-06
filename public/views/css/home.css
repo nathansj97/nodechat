@@ -1,9 +1,0 @@
-#userPanel{
-    margin: 10px;
-}
-
-#userPanelBody{
-    max-height: 90vh;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}
