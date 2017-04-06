@@ -1,6 +1,5 @@
 var express = require('express');
 var server = express();
-var path = require('path');
 var bodyParser = require('body-parser');
 var http = require('http').Server(server);
 var io = require('socket.io')(http);
@@ -11,11 +10,6 @@ var BASE_URL = process.argv[2];
 // Import custom services.
 var keyService = require('./services/keyService');
 var userService = require('./services/userService');
-
-// Serve static files
-server.use(express.static(path.join(__dirname, 'public/')));
-server.use(express.static(path.join(__dirname, 'public/views/')));
-server.use(express.static(path.join(__dirname, 'public/views/partial/')));
 
 // Allow parsing of JSON in request body
 server.use(bodyParser.json());

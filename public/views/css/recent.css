@@ -1,9 +1,0 @@
-#recentPanel{
-    margin: 10px;
-}
-
-#recentChatContainer{
-    max-height: 90vh;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-}

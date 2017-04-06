@@ -1,6 +1,0 @@
-#chatPanel {
-    height: 350px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    word-wrap: break-word;
-}
