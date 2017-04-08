@@ -74,6 +74,6 @@ server.get('/api/users/getAll', function(req, res){
 })
 
 // Listen
-http.listen(3000, BASE_URL, function(){
+http.listen(80, BASE_URL, function(){
     console.log('Listening on ' + BASE_URL + ' at port 3000');
 });
