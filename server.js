@@ -72,6 +72,6 @@ server.get('/api/users/getAll', function(req, res){
 })
 
 // Listen
-http.listen(80, '0.0.0.0', function(){
+http.listen(process.env.PORT, '0.0.0.0', function(){
     console.log('Listening on 0.0.0.0 at port 80');
 });
