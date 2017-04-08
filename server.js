@@ -5,8 +5,6 @@ var http = require('http').Server(server);
 var io = require('socket.io')(http);
 var cors = require('cors');
 
-var BASE_URL = process.argv[2];
-
 // Import custom services.
 var keyService = require('./services/keyService');
 var userService = require('./services/userService');
@@ -74,6 +72,6 @@ server.get('/api/users/getAll', function(req, res){
 })
 
 // Listen
-http.listen(80, BASE_URL, function(){
-    console.log('Listening on ' + BASE_URL + ' at port 3000');
+http.listen(80, '0.0.0.0', function(){
+    console.log('Listening on 0.0.0.0 at port 80');
 });
