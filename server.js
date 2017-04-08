@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var http = require('http').Server(server);
 var io = require('socket.io')(http);
 var cors = require('cors');
-var corsOptions = { origin: ['http://nodechatfrontend.azurewebsites.net/', 'localhost'], credentials: true };
 
 // Import custom services.
 var keyService = require('./services/keyService');
@@ -13,7 +12,9 @@ var userService = require('./services/userService');
 // Allow parsing of JSON in request body
 server.use(bodyParser.json());
 
-
+// Cors configuration
+var corsOptions = { origin: ['http://nodechatfrontend.azurewebsites.net/', 'localhost'], credentials: true };
+server.options('*', cors());
 server.use(cors(corsOptions));
 
 // Listen for new socket connections
