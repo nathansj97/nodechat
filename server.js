@@ -13,7 +13,7 @@ var userService = require('./services/userService');
 server.use(bodyParser.json());
 
 // Cors configuration
-var corsOptions = { origin: ['http://nodechatfrontend.azurewebsites.net/', 'localhost'], credentials: true };
+var corsOptions = { origin: 'http://nodechatfrontend.azurewebsites.net/', credentials: true };
 server.options('*', cors());
 server.use(cors(corsOptions));
 
